@@ -1,5 +1,17 @@
-dsfs
-sdfsfsfdsdfsdfsdsfsdf
-4656546564645
-sfdsdfsfdsdfsd456456456
-6544654654655
+spring:
+ profiles:
+  active:
+  - dev
+
+---
+spring:
+ profiles: dev
+ application:
+  name: microservicecloud-config-lj-dev
+
+---
+spring:
+ profiles: test
+ application:
+  name: microservicecloud-config-lj-test
+ 
