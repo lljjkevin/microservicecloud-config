@@ -1,0 +1,56 @@
+﻿spring:
+  profiles:
+    active:
+    - dev
+
+---
+server:
+  port: 8001
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-provider-dev #eureka注册中心显示的微服务的名称
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test_springboot
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  type-aliases-package: com.lj.springcloud.entities
+
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server的交互地址，如果是Eureka Server集群，可以通过逗号分隔配置多个地址
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    prefer-ip-address: true #让微服务使用自己的ip
+    instance-id: microservicecloud-config-provider-8001
+
+---
+server:
+  port: 8002
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-provider-test #eureka注册中心显示的微服务的名称
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/test_springboot
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  type-aliases-package: com.lj.springcloud.entities
+
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server的交互地址，如果是Eureka Server集群，可以通过逗号分隔配置多个地址
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    prefer-ip-address: true #让微服务使用自己的ip
+    instance-id: microservicecloud-config-provider-8002
